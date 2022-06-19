@@ -1,0 +1,67 @@
+import React, { useContext, useState } from "react"
+import { Link } from "react-router-dom"
+import { Context } from "../Context"
+import CartItem from "../components/CartItem"
+
+function Cart() {
+	const { cartPhotos, removeFromCart, emptyCart} = useContext(Context)
+	const [order, setOrder] = useState("Place order")
+
+	const price = 5.99
+	const totalPrice = cartPhotos.length * price
+
+	const cartItemElements = cartPhotos.map((photo) => (
+		<CartItem
+			key={photo.id}
+			item={photo}
+			removeItem={removeFromCart}
+			price={price}
+		/>
+	))
+
+	function placeOrder() {
+		setOrder("Ordering...")
+
+		setTimeout(() => {
+			emptyCart && emptyCart()
+			setOrder("Place order")
+		}, 3000)
+	}
+
+	return (
+		<div className = "container mx-auto">
+			<main className="font-basic p-8">
+				{cartPhotos.length ?
+					<div className = "grid grid-cols-[auto_50px_auto] auto-rows-auto gap-10">
+						<h1 className="text-3xl font-semibold mt-8 col-span-3 self-center justify-self-center">
+							Check out
+						</h1>
+						{cartItemElements}
+						<p className="font-semibold col-start-3 self-center justify-self-start">
+							Total:
+							{totalPrice.toLocaleString("en-PL", {
+								style: "currency",
+								currency: "EUR",
+							})}
+						</p>
+						
+							<button
+								className="text-slate-100 font-semibold bg-red-800 rounded-lg px-6 py-3.5 col-span-3 self-center justify-self-center"
+								onClick={placeOrder}>
+								{order}
+							</button>
+					</div>
+				: <div className="flex flex-col justify-between">
+					<h1 className="text-3xl mt-20 font-semibold self-center">
+						The cart is empty.
+					</h1>
+					<p className = "text-lg mt-5 self-center"> Fill it with some nice photos 
+						<Link to = "/" className = "font-semibold hover:cursor-pointer hover:text-slate-600"> here</Link> !</p>
+				</div>
+				}
+			</main>
+		</div>
+	)
+}
+
+export default Cart
