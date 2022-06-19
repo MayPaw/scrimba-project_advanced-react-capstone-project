@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { Context } from "../Context"
 import CartItem from "../components/CartItem"
+import UserMessage from "../components/UserMessage"
 
 function Cart() {
-	const { cartPhotos, removeFromCart, emptyCart} = useContext(Context)
+	const { cartPhotos, removeFromCart, emptyCart, isShown, showUserMessage } = useContext(Context)
 	const [order, setOrder] = useState("Place order")
 
 	const price = 5.99
@@ -24,6 +25,7 @@ function Cart() {
 
 		setTimeout(() => {
 			emptyCart && emptyCart()
+			showUserMessage && showUserMessage()
 			setOrder("Place order")
 		}, 3000)
 	}
@@ -59,6 +61,7 @@ function Cart() {
 						<Link to = "/" className = "font-semibold hover:cursor-pointer hover:text-slate-600"> here</Link> !</p>
 				</div>
 				}
+				{isShown && <UserMessage message="Order placed!"/>}
 			</main>
 		</div>
 	)

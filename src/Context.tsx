@@ -13,6 +13,9 @@ interface ContextValue {
     addToCart?: Function,
     removeFromCart?: Function,
     emptyCart?: Function,
+    isShown?: boolean,
+    showUserMessage?: Function
+    error?: unknown|undefined
 }
 
 type Props = {
@@ -24,6 +27,7 @@ const Context = createContext <ContextValue> ({photos: [], cartPhotos: []})
 function ContextProvider (props: Props) {
     const [photos, setPhotos] = useState <Photos[]>([])
     const [cartPhotos, setCartPhotos] = useState <Photos[]>([])
+    const [isShown, setIsShown] = useState <boolean>(false)
 
 
     function toggleFavorite (id: string) {
@@ -48,6 +52,11 @@ function ContextProvider (props: Props) {
         setCartPhotos([])
     }
 
+    function showUserMessage() {
+        setIsShown(true)
+        setTimeout(() => setIsShown(false), 3000)
+    }
+
     useEffect(()=> {
         async function getPhotos () {
             try {
@@ -64,7 +73,7 @@ function ContextProvider (props: Props) {
     }, [])
 
     return (
-        <Context.Provider value = {{photos, toggleFavorite, cartPhotos, emptyCart, addToCart, removeFromCart}}>
+        <Context.Provider value = {{photos, toggleFavorite, cartPhotos, emptyCart, addToCart, removeFromCart, isShown, showUserMessage}}>
             {props.children}
         </Context.Provider>
     )
