@@ -28,6 +28,7 @@ function ContextProvider (props: Props) {
     const [photos, setPhotos] = useState <Photos[]>([])
     const [cartPhotos, setCartPhotos] = useState <Photos[]>([])
     const [isShown, setIsShown] = useState <boolean>(false)
+    const [error, setError] = useState <unknown|undefined>(undefined)
 
 
     function toggleFavorite (id: string) {
@@ -64,7 +65,7 @@ function ContextProvider (props: Props) {
                 const data = await res.json()
                 setPhotos(data)   
             } catch (err){
-                console.error(err)
+                setError(err)
             }
         }
 
@@ -73,7 +74,7 @@ function ContextProvider (props: Props) {
     }, [])
 
     return (
-        <Context.Provider value = {{photos, toggleFavorite, cartPhotos, emptyCart, addToCart, removeFromCart, isShown, showUserMessage}}>
+        <Context.Provider value = {{photos, toggleFavorite, cartPhotos, emptyCart, addToCart, removeFromCart, isShown, showUserMessage, error}}>
             {props.children}
         </Context.Provider>
     )

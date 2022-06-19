@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
-import { Context } from "../Context"
+import React, { useEffect, useState } from "react"
 
 type Props = {
     message: string
