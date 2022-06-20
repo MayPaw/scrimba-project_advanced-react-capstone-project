@@ -5,10 +5,10 @@ function Header() {
 	return (
 		<header className="bp-sm:text-4xl text-2xl text-slate-100 w-full bg-red-800 bp-sm:p-7 py-7 px-2 shadow-lg ">
 			<div className="bp-xl:container bp-xl:mx-auto flex items-center justify-between">
-				<Link to="/">
+				<Link to="/scrimba-project_advanced-react-capstone-project/">
 					<h2 className="font-decorative italic tracking-wider "> PicSome </h2>
 				</Link>
-				<Link to="/cart">
+				<Link to="/scrimba-project_advanced-react-capstone-project/cart">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						className="bp-sm:h-9 bp-sm:w-9 h-6 w-6"

@@ -9,8 +9,8 @@ function App() {
     <div>
       <Header />
       <Routes>
-        <Route path = '/' element = {<Photos />} />
-        <Route path = '/cart' element = {<Cart />} />
+        <Route path = '/scrimba-project_advanced-react-capstone-project/' element = {<Photos />} />
+        <Route path = '/scrimba-project_advanced-react-capstone-project/cart' element = {<Cart />} />
       </Routes>
     </div>
   );

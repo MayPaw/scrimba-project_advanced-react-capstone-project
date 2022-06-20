@@ -58,7 +58,7 @@ function Cart() {
 						The cart is empty.
 					</h1>
 					<p className = "text-lg text-center mt-5 self-center"> Fill it with some nice photos 
-						<Link to = "/" className = "font-semibold hover:cursor-pointer hover:text-slate-600"> here</Link> !</p>
+						<Link to = "/scrimba-project_advanced-react-capstone-project/" className = "font-semibold hover:cursor-pointer hover:text-slate-600"> here</Link> !</p>
 				</div>
 				}
 				{isShown && <UserMessage message="Order placed!"/>}
