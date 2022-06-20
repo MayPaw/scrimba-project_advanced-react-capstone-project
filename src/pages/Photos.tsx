@@ -8,8 +8,8 @@ function Photos() {
     const {photos} = useContext(Context)
 
     return (
-        <div className = "container mx-auto">
-            <main className = 'grid [grid-template-columns:_repeat(auto-fit,_minmax(200px,_1fr))] gap-1'>
+        <main className = "bp-xl:w-[1200px] bp-xl:container mx-auto">
+            <div className = 'grid [grid-template-columns:_repeat(auto-fit,_minmax(200px,_1fr))] gap-1'>
                 {
                 photos.length? 
                     photos.map((photo, i) => (
@@ -20,8 +20,8 @@ function Photos() {
                     : <LoadingError />
                 }
                 
-            </main>
-        </div>
+            </div>
+        </main>
     )
 }
 

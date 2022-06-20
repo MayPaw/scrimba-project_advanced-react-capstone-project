@@ -6,22 +6,26 @@ module.exports = {
       'decorative': ['Alfa Slab One', 'Georgia','serif'],
       'basic' : ['Montserrat', 'Arial', 'sans-serif']
     },
-  extend: {
-    keyframes: {
-      slideUp: {
-        from: {transform: "translate(0, 5rem)", opacity:"0"},
-        to: {transform: "translate(0,0)", opacity:"1"}
+    screens: {
+      'bp-sm':'300px',
+      'bp-xl': '1200px'
+    },
+    extend: {
+      keyframes: {
+        slideUp: {
+          from: {transform: "translate(0, 5rem)", opacity:"0"},
+          to: {transform: "translate(0,0)", opacity:"1"}
+        },
+        slideDown: {
+          from: {transform: "translate(0,0)", opacity:"1"},
+          to: {transform: "translate(0, 5rem)", opacity:"0"}
+        }
       },
-      slideDown: {
-        from: {transform: "translate(0,0)", opacity:"1"},
-        to: {transform: "translate(0, 5rem)", opacity:"0"}
-      }
+      animation: {
+          slideUp: "slideUp 0.5s linear",
+          slideDown:"slideDown 0.5s linear 1 2s" ,
+      },
     },
-    animation: {
-        slideUp: "slideUp 0.5s linear",
-        slideDown:"slideDown 0.5s linear 1 2s" ,
-    },
-  },
-  plugins: [],
+    plugins: [],
   }
 }
