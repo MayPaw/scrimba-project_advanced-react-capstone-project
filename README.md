@@ -1,6 +1,7 @@
 # Scrimba Project: Advanced React Capstone Project
 
 This repository contains a project from Scrimba's "The Frontend Developer Career Path" course - Advanced React Capstone Project. As the name suggests, the project summarizes the Advanced React Module, taught by Bob Ziroll.
+To see the app, please visit: https://maypaw.github.io/scrimba-project_advanced-react-capstone-project/
 
 The app was done as part of the course, not as a solo project. So, to learn even more and do something more creative, I decided to make some changes. Even though the project doesn't significantly benefit from Typescript or Tailwind CSS, I chose to include them for practice. Below I list "requirements" - parts of the project done with the tutor and my ideas for functionality.
 
