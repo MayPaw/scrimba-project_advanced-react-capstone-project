@@ -20,7 +20,7 @@ function Image(props: Props) {
 
 	return (
 		<div className={`${props.containerClass} relative`} ref={ref}>
-			<img src={props.photo.url} className={props.class} />
+			<img src={props.photo.url} alt = "" className={props.class} />
 			{(hovered || props.photo.isFavorite) && (
 				// favorite icon
 				<svg

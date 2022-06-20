@@ -16,7 +16,7 @@ function CartItem(props: Props) {
 
 	return (
 		<>
-			<img src={props.item.url} className="min-w-[130px] w-[45%] h-[150px] object-cover self-center justify-self-end" />
+			<img src={props.item.url} alt = "" className="min-w-[130px] w-[45%] h-[150px] object-cover self-center justify-self-end" />
 			<svg
 				onClick={() => props.removeItem && props.removeItem(props.item.id)}
 				ref={ref}
